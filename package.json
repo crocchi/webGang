@@ -1,0 +1,16 @@
+{
+  "name": "webgang",
+  "version": "1.0.0",
+  "description": "webGang is an interactive location-based game where players compete to claim territories by sharing their GPS location. Build your virtual Gang House and compete with other players to dominate the map!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
