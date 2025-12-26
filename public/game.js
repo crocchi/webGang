@@ -3,6 +3,10 @@ const TILE_SIZE = 100; // pixels
 const MAP_TILE_SIZE = 0.001; // degrees (approximately 100m)
 const ZOOM_LEVEL = 16;
 
+// Procedural generation constants for map styling
+const HASH_PRIME_1 = 73856093;
+const HASH_PRIME_2 = 19349663;
+
 class WebGangGame {
     constructor() {
         this.canvas = document.getElementById('game-canvas');
@@ -29,7 +33,7 @@ class WebGangGame {
     }
     
     generatePlayerId() {
-        const id = 'Player_' + Math.random().toString(36).substr(2, 9);
+        const id = 'Player_' + Math.random().toString(36).substring(2, 11);
         document.getElementById('player-id-value').textContent = id;
         return id;
     }
@@ -291,7 +295,7 @@ class WebGangGame {
                 // Create pseudo-random but consistent pattern based on tile coordinates
                 const tileX = centerTile.x + i;
                 const tileY = centerTile.y + j;
-                const seed = (tileX * 73856093) ^ (tileY * 19349663);
+                const seed = (tileX * HASH_PRIME_1) ^ (tileY * HASH_PRIME_2);
                 const random = Math.abs(Math.sin(seed)) * 10;
                 
                 // Base block color (building-like)

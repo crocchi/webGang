@@ -19,6 +19,20 @@ app.get('/api/tiles/:x/:y', (req, res) => {
 // Claim a tile
 app.post('/api/tiles/claim', (req, res) => {
     const { x, y, playerId, color } = req.body;
+    
+    // Validate input
+    if (typeof x !== 'number' || typeof y !== 'number') {
+        return res.status(400).json({ success: false, error: 'Invalid tile coordinates' });
+    }
+    
+    if (!playerId || typeof playerId !== 'string') {
+        return res.status(400).json({ success: false, error: 'Invalid player ID' });
+    }
+    
+    if (!color || typeof color !== 'string' || !color.match(/^#[0-9A-Fa-f]{6}$/)) {
+        return res.status(400).json({ success: false, error: 'Invalid color format' });
+    }
+    
     const key = `${x},${y}`;
     
     tiles[key] = {
