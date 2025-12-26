@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGang - GPS Territory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="header">
+            <h1>WebGang</h1>
+            <div id="player-info">
+                <span id="player-id">Player: <span id="player-id-value">...</span></span>
+                <span id="location">Location: <span id="location-value">Getting GPS...</span></span>
+            </div>
+        </div>
+        
+        <div id="canvas-container">
+            <canvas id="game-canvas"></canvas>
+        </div>
+        
+        <div id="controls">
+            <button id="claim-tile-btn">Claim This Tile</button>
+            <button id="recenter-btn">Re-center Map</button>
+            <div id="stats">
+                <p>Tiles Owned: <span id="tiles-owned">0</span></p>
+                <p>Current Tile: <span id="current-tile">-</span></p>
+            </div>
+        </div>
+        
+        <div id="info-panel">
+            <h3>How to Play</h3>
+            <p>🗺️ The map is divided into tiles based on real GPS coordinates</p>
+            <p>📍 Move to a location and click "Claim This Tile" to conquer it</p>
+            <p>🎨 Your tiles will be shown in your color (GTA style)</p>
+            <p>🏆 Conquer as many tiles as possible!</p>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
